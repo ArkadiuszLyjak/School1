@@ -1,31 +1,50 @@
 package School;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 public class MainAppSchool {
     public static void main(String[] args) {
-        System.out.println("Otwieramy szkołę specjalną im. Roberta z Sanoka.");
 
-        ClassRoom.printClassesNamesIDs();
+        // TakeDataFromUser.takeStringFromIN();
+        Pupil.createPupil();
+
+        /*ClassRoom.printClassesNamesIDs();
 
         // można w konstr. wpisać dowolną klasę - w tej cwhili nie sprawdz.
-        // czy jest ona poprawna - można to zrobić oczywiście  ;-)
-        Pupil pupil1 = new Pupil.PupilBuilder("1a", Subjects.subj)
-                .name("Arek").age(42).surname("Lyjak").gender("male").build();
+        // czy jest ona poprawna - można to zrobić oczywiście ...
 
-        // wyświetlanie ucznia - przy większej iliści uczniów mozńa
-        // to inaczej zorganizować i ofkors pomysł jest
-        Pupil.PrintPupil.printPupil(pupil1); // wyświetl ucznia
+        Subjects[] subjects_pupil1 = new Subjects[3];
+        subjects_pupil1[0] = Subjects.ETHIC;
+        subjects_pupil1[1] = Subjects.GEOGRAPHY;
+        subjects_pupil1[2] = Subjects.MATHEMATICS;
 
-        // można dorobić mechaznim komunikacji z wejściem z konsoli
-        Map<String, String> subj = new LinkedHashMap<>();
-        subj.put("1a", Subjects.subj[0]);
-        subj.put("1b", Subjects.subj[1]);
-        Teacher teacher1 = new Teacher.TeacherBuilder("2e", subj)
-                .name("Robertos").surname("Homikowski").age(59).gender("kosmita").build();
+        Pupil pupil1 = new Pupil(
+                "Pawel",
+                "Gawlowski",
+                12,
+                "male",
+                "1a",
+                subjects_pupil1);
 
-        Teacher.PrintTeacher.printTeacher(teacher1);
+        pupil1.printPupil();
+
+        // wyświetlanie ucznia -przy większej iliści uczniów mozńa
+        // to inaczej zorganizować i ofkors pomysł jest można dorobić
+        // mechaznim komunikacji z wejściem z konsoli
+
+        Map<String, Subjects> teacher1Subjects = new LinkedHashMap<>();
+        teacher1Subjects.put("1a", Subjects.MATHEMATICS);
+        teacher1Subjects.put("1b", Subjects.MATHEMATICS);
+        teacher1Subjects.put("1c", Subjects.MATHEMATICS);
+        teacher1Subjects.put("2c", Subjects.GEOGRAPHY);
+
+        Teacher teacher1 = new Teacher(
+                "Maria",
+                "Kwasik",
+                55,
+                "female",
+                "2b",
+                teacher1Subjects);
+
+        teacher1.printTeacher();*/
 
     }
 }

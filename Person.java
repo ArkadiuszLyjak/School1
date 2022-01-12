@@ -1,12 +1,23 @@
 package School;
 
-public abstract class Person {
-    String name = "XXX";
-    String surname = "YYY";
-    int age = 999;
-    String gender = "male/female";
+import lombok.Data;
 
-    //region getters
+/**
+ * My <b>Person class</b>
+ *
+ * @author AL807S
+ * @see Teacher
+ * @see Pupil
+ */
+
+@Data
+public abstract class Person {
+    String name = "ENTERED_DEFAULT_NAME";
+    String surname = "ENTERED_DEFAULT_LASTNAME";
+    int age = 999;
+    String gender = "CHOOSE: male/female";
+
+    /*//region getters
     public String getName() {
         return name;
     }
@@ -22,5 +33,5 @@ public abstract class Person {
     public String getGender() {
         return gender;
     }
-    //endregion
+    //endregion*/
 }

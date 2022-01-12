@@ -1,5 +1,10 @@
 package School;
 
+/**
+ * <p>School classes are made up of a combination of the <tt>numbers<tt/> representing
+ * those classes and the <tt>letters</tt>.</br></p>
+ */
+
 public class ClassRoom {
 
     public static int numOFClasses;
@@ -12,9 +17,11 @@ public class ClassRoom {
     // przechowujemy nazwy klas np. 1a, 2b itp
     public static String[] classRooms = new String[sizeClassRooms];
 
-    // Tworzymy stringi opisujące klasy szkolne i przekazujemy to
-    // do zmiennej classRooms j.w
-    //region static
+    /**Tworzymy stringi opisujące klasy szkolne i
+     * przekazujemy to do zmiennej classRooms j.w
+     * */
+
+    //region static block
     static {
         int order = 0;
 
@@ -44,7 +51,7 @@ public class ClassRoom {
     public static void printClassesNamesIDs() {
         int order = 1;
 
-        System.out.println("\nThe names of the classes in the school mr Director:\n");
+        System.out.println("The names of the classes in the school:\n");
 
         for (String s : ClassRoom.classRooms) {
             System.out.print(s + " ");

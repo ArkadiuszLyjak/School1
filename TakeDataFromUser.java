@@ -2,43 +2,30 @@ package School;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TakeNumberFromUser {
+public class TakeDataFromUser {
 
-    //region takeIntegerRegex
-    public static int takeIntegerRegex() {
+    //region takeStringFromIN
+    public static String takeStringFromIN() {
 
-        String strRegex = null;
+        String ints = null;
         int retValue = 0;
-
-        final Pattern p = Pattern.compile("d+");
 
         try {
             InputStreamReader isr = new InputStreamReader(System.in);
             BufferedReader br = new BufferedReader(isr);
 
-            System.out.print("Podaj liczbę klas: ");
-            strRegex = br.readLine();
+            ints = br.readLine();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        assert strRegex != null;
-        Matcher m = p.matcher(strRegex);
-
-        while (m.find()) {
-            System.out.println(m.group());
-        }
-        try {
-            retValue = Integer.parseInt(String.valueOf(m.matches()));
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
-
-        return retValue;
+        return ints;
     }
     //endregion
 
@@ -71,4 +58,19 @@ public class TakeNumberFromUser {
         return numberFromConsole;
     }
     //endregion
+
+    //region findIntInString
+    static List<String> findIntInString(String searchIN) {
+        Pattern intPatt = Pattern.compile("-?\\d+");
+        Matcher matcher = intPatt.matcher(searchIN);
+
+        List<String> intList = new ArrayList<>();
+        while (matcher.find()) {
+            intList.add(matcher.group());
+        }
+
+        return intList;
+    }
+    //endregion
+
 }

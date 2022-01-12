@@ -1,87 +1,118 @@
 package School;
 
+/**
+ * My <b>Pupil class</b>
+ *
+ * @author AL807S
+ * @see Person
+ * @see Teacher
+ */
+
 public class Pupil extends Person {
     private final String classroom; // która klasa
-    private final String[] subjects; // przedmioty ucznia
+    private final Subjects[] subjects; // przedmioty ucznia
 
-    //region Pupil
-    public Pupil(PupilBuilder pupilBuilder) {
-        classroom = pupilBuilder.classroom;
-        subjects = pupilBuilder.subjects;
+    /**
+     * All constructor fields are required.
+     *
+     * @return Pupil instance.
+     */
 
-        name = pupilBuilder.name;
-        surname = pupilBuilder.surname;
-        age = pupilBuilder.age;
-        gender = pupilBuilder.gender;
+    //region Pupil - constructor
+    public Pupil(String name, String surname, int age, String gender,
+                 String classroom, Subjects[] subjects) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.gender = gender;
+        this.classroom = classroom;
+        this.subjects = subjects;
     }
     //endregion
 
-    //region getters
+    /**
+     * A static method that creates an instance of the class.
+     *
+     * @return Pupil instance.
+     */
+
+    //region createPupil with specjalised method
+    public static String /*Pupil*/ createPupil() {
+        System.out.print("Wpisz kolejno oddzielone przecinkiem:\nimię, nazwisko, wiek, płeć\n");
+        // String s = TakeDataFromUser.takeStringFromIN();
+        String s = "   Arkad iusz,  Lyjak,42,male ";
+        String trimmed = s.trim().replaceAll(" ", "");
+
+        try {
+            String[] str_splitted = trimmed.split("[ ,.]|\\s");
+            String name = str_splitted[0];
+            String surname = str_splitted[1];
+            int age = Integer.parseInt(str_splitted[2]);
+            String gender = str_splitted[3];
+
+            System.out.print("Wprowadziłeś: ");
+            for (String str : str_splitted)
+                System.out.print(str + " ");
+
+            System.out.println("\n\nWprowadz klasę ze zbioru poniżej: ");
+            ClassRoom.printClassesNamesIDs();
+
+            boolean kreciolek = false;
+
+            do {
+                String classroom = TakeDataFromUser.takeStringFromIN();
+                for (String s2 : ClassRoom.classRooms) {
+                    if (classroom.equalsIgnoreCase(s2)) {
+                        kreciolek = true;
+                        break;
+                    } else System.out.println("Nie ma takiej klasy matole!");
+                }
+            } while (!kreciolek);
+
+            System.out.println("Wybierz przedmioty: ");
+            for (Subjects subjects : Subjects.values())
+                System.out.println(subjects);
+
+            // String classroom = TakeDataFromUser.takeStringFromIN();
+
+        } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
+        return s;
+    }
+    //endregion
+
     public String getClassroom() {
         return classroom;
     }
 
-    public String[] getSubjects() {
+    public Subjects[] getSubjects() {
         return subjects;
     }
-    //endregion
 
-    //region PupilBuilder
-    static class PupilBuilder {
-        private final String classroom;
-        private final String[] subjects;
+    //region printPupil
+    public void printPupil() {
+        System.out.println("\n------------- pupil database -------------");
+        System.out.print(this.getName() + " ");
+        System.out.print(this.getSurname() + ", ");
+        System.out.print(this.getAge() + ", ");
+        System.out.println(this.getGender());
 
-        // extends Person
-        private String name;
-        private String surname;
-        private int age;
-        private String gender;
-
-        public PupilBuilder(String classroom, String[] subjects) {
-            this.classroom = classroom;
-            this.subjects = subjects;
-        }
-
-        public PupilBuilder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public PupilBuilder surname(String surname) {
-            this.surname = surname;
-            return this;
-        }
-
-        public PupilBuilder age(int age) {
-            this.age = age;
-            return this;
-        }
-
-        public PupilBuilder gender(String gender) {
-            this.gender = gender;
-            return this;
-        }
-
-        public Pupil build() {
-            return new Pupil(this);
-        }
-
+        this.printClassroom();
     }
     //endregion
 
-    //region PrintPupil
-    public static class PrintPupil {
-        public static void printPupil(Pupil pupil) {
-            System.out.println();
-            System.out.print("Class: " + pupil.getClassroom() + "\n");
-            System.out.print("Name: " + pupil.getName() + "\n");
-            System.out.print("Surname: " + pupil.getSurname() + "\n");
-            System.out.print("Age: " + pupil.getAge() + "\n");
-            System.out.println("Gender: " + pupil.getGender());
+    //region printClassroom
+    private void printClassroom() {
+        System.out.print("Classroom: " + this.getClassroom() + "\n");
+        System.out.print("Subjects: \n");
 
+        for (Subjects s : subjects) {
+            System.out.println("Ordinal: " + s.ordinal() + " - " + s + "\t(LEVEL: " + s.getLevel() + ")");
         }
     }
     //endregion
+
 
 }
 
