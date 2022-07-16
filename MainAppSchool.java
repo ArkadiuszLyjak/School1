@@ -1,12 +1,16 @@
 package School;
 
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class MainAppSchool {
     public static void main(String[] args) {
 
         // TakeDataFromUser.takeStringFromIN();
         Pupil.createPupil();
 
-        /*ClassRoom.printClassesNamesIDs();
+        ClassRoom.printClassesNamesIDs();
 
         // można w konstr. wpisać dowolną klasę - w tej cwhili nie sprawdz.
         // czy jest ona poprawna - można to zrobić oczywiście ...
@@ -44,7 +48,7 @@ public class MainAppSchool {
                 "2b",
                 teacher1Subjects);
 
-        teacher1.printTeacher();*/
+        teacher1.printTeacher();
 
     }
 }

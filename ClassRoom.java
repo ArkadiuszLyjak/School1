@@ -3,7 +3,13 @@ package School;
 /**
  * <p>School classes are made up of a combination of the <tt>numbers<tt/> representing
  * those classes and the <tt>letters</tt>.</br></p>
+ * @author AL807S
+ * @see Teacher
  */
+
+// TODO to za klasa i Kontrukcja.....Klasa ClassRoom mam byc encją a kreowanie jej z ajkiś
+// przypsanych ciąfów metodamy w niej zawartymi to jest słabe
+// todo generalnie do wyrzucenia:(
 
 public class ClassRoom {
 
@@ -17,11 +23,8 @@ public class ClassRoom {
     // przechowujemy nazwy klas np. 1a, 2b itp
     public static String[] classRooms = new String[sizeClassRooms];
 
-    /**Tworzymy stringi opisujące klasy szkolne i
-     * przekazujemy to do zmiennej classRooms j.w
-     * */
+    //region static block // >> TODO   to mam byc fabryka to jest do bani
 
-    //region static block
     static {
         int order = 0;
 
@@ -48,7 +51,7 @@ public class ClassRoom {
 
     // display class names in school
     //region printClassesNamesIDs
-    public static void printClassesNamesIDs() {
+    public static void printClassesNamesIDs() {   //TODO  do usunięcia calssRoom jest encją
         int order = 1;
 
         System.out.println("The names of the classes in the school:\n");

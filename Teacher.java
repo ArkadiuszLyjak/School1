@@ -47,9 +47,13 @@ public class Teacher extends Person {
     //endregion
 
     //region printTeacher
-    public void printTeacher() {
+    public void printTeacher() {  //TODO to nie jest funkcja dobra...
+        // Klasa Teacher jest encją (wzorzec encja.)  do drukowania i prezentacji najlepiej utworzyć zewnętrzną klase typu teacherDecorator
         System.out.println("\n------------- teacher database -------------");
-        System.out.print(this.getName() + " ");
+        // TODO niema potrzeby odoływać się przez this i getName można użyć name po
+        //  System.out.print(this.getName() + " "); i takzę poniżej
+        System.out.print(name + " ");
+
         System.out.print(this.getSurname() + ", ");
         System.out.print(this.getAge() + "yo, ");
         System.out.print(this.getGender());
@@ -64,12 +68,13 @@ public class Teacher extends Person {
     //region printSubjectsTaught
     private void printSubjectsTaught() {
 
-        Set<Map.Entry<String, Subjects>> entries = subjectsTaught.entrySet();
+        Set<Map.Entry<String, Subjects>> entries = subjectsTaught.entrySet();    // TO MOŻNA ZROBIĆ DUŻO PROŚCIJ dal takiego projektu
         Iterator<Map.Entry<String, Subjects>> iterator = entries.iterator();
 
         System.out.println("Classroom / Subject thought: ");
         while (iterator.hasNext()) {
             Map.Entry<String, Subjects> entry = iterator.next();
+
             String key = entry.getKey();
             Subjects value = entry.getValue();
 

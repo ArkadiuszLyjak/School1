@@ -1,5 +1,7 @@
 package School;
 
+//import lombok.Data;
+
 import lombok.Data;
 
 /**
@@ -12,10 +14,10 @@ import lombok.Data;
 
 @Data
 public abstract class Person {
-    String name = "ENTERED_DEFAULT_NAME";
-    String surname = "ENTERED_DEFAULT_LASTNAME";
-    int age = 999;
-    String gender = "CHOOSE: male/female";
+    String name = "ENTERED_DEFAULT_NAME";         //TODO tak się nie inicjuje zmiennych  
+    String surname = "ENTERED_DEFAULT_LASTNAME";  //TODO tak się nie inicjuje zmiennych 
+    int age = 999; //TODO  Tak się nie inicjujej zmiennej . do usunięcia
+    String gender = "CHOOSE: male/female";  //TODO Do zrobienia enum 
 
     /*//region getters
     public String getName() {

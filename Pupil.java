@@ -37,7 +37,7 @@ public class Pupil extends Person {
      */
 
     //region createPupil with specjalised method
-    public static String /*Pupil*/ createPupil() {
+    public static String /*Pupil*/ createPupil() { //TODO co to jest na komentarz ???? /*Pupil */
         System.out.print("Wpisz kolejno oddzielone przecinkiem:\nimię, nazwisko, wiek, płeć\n");
         // String s = TakeDataFromUser.takeStringFromIN();
         String s = "   Arkad iusz,  Lyjak,42,male ";
@@ -57,7 +57,7 @@ public class Pupil extends Person {
             System.out.println("\n\nWprowadz klasę ze zbioru poniżej: ");
             ClassRoom.printClassesNamesIDs();
 
-            boolean kreciolek = false;
+            boolean kreciolek = false;        //TODO nazwa zmiennej  do poprawy i miejsce jej deklaracji
 
             do {
                 String classroom = TakeDataFromUser.takeStringFromIN();
@@ -91,7 +91,7 @@ public class Pupil extends Person {
     }
 
     //region printPupil
-    public void printPupil() {
+    public void printPupil() {  //TODO do wyrzucenia ....... jak pozostałe klacy to jest ENCJA a drukowania powinno być gdzieś indziej
         System.out.println("\n------------- pupil database -------------");
         System.out.print(this.getName() + " ");
         System.out.print(this.getSurname() + ", ");
